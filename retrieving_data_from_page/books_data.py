@@ -19,9 +19,11 @@ while current_page is not None:
         title = book.find_all(lambda tag: tag.name == 'a' and tag.get('href') and tag.get('title') and tag.text)[0]['title']
         price = book.find("p", {"class": "price_color"}).text[1:]
         star = book.find("p", {"class": "star-rating"}).attrs['class'][1]
+        stock = book.find("p", {"class":"instock availability"}).text
         insert_book['title'] = title
         insert_book['price'] = price
         insert_book['star'] = star
+        insert_book['stock'] = stock.strip()
         book_data.append(insert_book)
 
     bottom_page = soup.find('ul', {"class":"pager"})
