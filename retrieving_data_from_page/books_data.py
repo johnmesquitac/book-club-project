@@ -38,4 +38,4 @@ while current_page is not None:
         pass
 
 df = pd.DataFrame(book_data)
-df.to_csv('books_data.csv')
+df.to_csv(r'C:\Users\mesqu\Documents\Scrapping-Books-Project\retrieving_data_from_page\books_data.csv')
